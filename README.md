@@ -85,9 +85,10 @@ src/
 pip install -r requirements.txt
 ```
 
-GapNet also requires two external dependencies to be cloned and installed at the repo root:
+GapNet also requires two external dependencies to be cloned and installed at the repo root. Additional GapNet supporting files from the /benchmarks directory need to be placed in cloned repos:
 
-- **HeMAC** — the multi-agent environment backend
+- **HeMAC** — the multi-agent environment backend 
+    - python "baselines\MAPPO\mappo_rnn_mpe.py"
 - **CASH JaxMARL benchmarks**
 
 Clone both repositories into the project root and follow their respective installation instructions before running training.

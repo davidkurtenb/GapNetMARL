@@ -1,0 +1,84 @@
+# ADD to baselines/MAPPO/configs
+
+LR: 5e-4
+ANNEAL_LR: True
+NUM_ENVS: 16
+TOTAL_TIMESTEPS: 10e6
+FC_DIM_SIZE: 64
+GRU_HIDDEN_DIM: 64
+UPDATE_EPOCHS: 4
+NUM_MINIBATCHES: 4
+GAMMA: 0.99
+GAE_LAMBDA: 0.95
+CLIP_EPS: 0.2
+SCALE_CLIP_EPS: False
+ENT_COEF: 0.01
+VF_COEF: 0.5
+MAX_GRAD_NORM: 0.5
+
+AGENT_INIT_SCALE: 2.
+AGENT_RECURRENT: True
+
+AGENT_HYPERAWARE: True
+AGENT_ARCH: "gapnet"
+
+GAP_FUNC_DIM: 8
+GAP_PHI_HIDDEN: 64
+
+AGENT_HYPERNET_KWARGS:
+  HIDDEN_DIM: 16
+  INIT_SCALE: 0.2
+  USE_LAYER_NORM: True
+  NUM_LAYERS: 4
+
+ENV_NAME: MPE_simple_transport
+ENV_KWARGS:
+  max_steps: 50
+
+  lumber_pickup_reward: 2.5
+  concrete_pickup_reward: 2.5
+  dropoff_reward: 10
+  quota_penalty: -0.1
+
+  capability_aware: True
+  num_capabilities: 2
+  num_agents: 4
+
+  agent_rads: [0.1, 0.1, 0.1, 0.1]
+  agent_accels: [3, 3, 3, 3]
+  agent_capacities:
+     - [[0.1, 0.4], [0.2, 0.3], [0.3, 0.2], [0.5, 0.0]]
+     - [[0.2, 0.3], [0.3, 0.2], [0.4, 0.1], [0.5, 0.0]]
+     - [[0.0, 0.5], [0.1, 0.4], [0.3, 0.2], [0.5, 0.0]]
+     - [[0.0, 0.5], [0.1, 0.4], [0.2, 0.3], [0.4, 0.1]]
+     - [[0.0, 0.5], [0.1, 0.4], [0.2, 0.3], [0.5, 0.0]]
+     - [[0.1, 0.4], [0.3, 0.2], [0.4, 0.1], [0.5, 0.0]]
+     - [[0.0, 0.5], [0.2, 0.3], [0.4, 0.1], [0.5, 0.0]]
+     - [[0.0, 0.5], [0.2, 0.3], [0.3, 0.2], [0.5, 0.0]]
+     - [[0.0, 0.5], [0.1, 0.4], [0.4, 0.1], [0.5, 0.0]]
+     - [[0.1, 0.4], [0.2, 0.3], [0.4, 0.1], [0.5, 0.0]]
+
+  site_quota: [2., 2.]
+
+  test_team_capacities:
+    - [[0.72, 0.28], [0.98, 0.02], [0.17, 0.83], [0.12, 0.13]]
+    - [[0.63, 0.37], [0.88, 0.12], [0.56, 0.44], [0.17, 0.08]]
+    - [[0.04, 0.96], [0.24, 0.76], [0.29, 0.71], [0.25, 0.  ]]
+    - [[0.01, 0.99], [0.56, 0.44], [0.18, 0.82], [0.05, 0.2 ]]
+    - [[0.26, 0.74], [0.65, 0.35], [0.95, 0.05], [0.16, 0.09]]
+    - [[0.37, 0.63], [0.52, 0.48], [0.77, 0.23], [0.04, 0.21]]
+    - [[0.41, 0.59], [0.96, 0.04], [0.12, 0.88], [0.05, 0.2 ]]
+    - [[0.86, 0.14], [0.97, 0.03], [0.38, 0.62], [0.12, 0.13]]
+    - [[0.68, 0.32], [0.87, 0.13], [0.73, 0.27], [0.15, 0.1 ]]
+    - [[0.4,  0.6],  [0.41, 0.59], [0.54, 0.46], [0.02, 0.23]]
+
+SEED: 76
+NUM_SEEDS: 10
+
+ENTITY: dk4120-kansas-state-university
+PROJECT: GapNet-JaxMARL
+WANDB_MODE: online
+
+SAVE_PATH: baselines/MAPPO/checkpoints
+VISUALIZE_FINAL_POLICY: False
+VIZ_NUM_ENVS: 3
