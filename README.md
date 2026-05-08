@@ -2,7 +2,7 @@
   <img src="Gapnet_logo.png" alt="GapNet Logo" width="400"/>
 </p>
 
-# GapNet — Capability-Gap-Conditioned MARL for Heterogeneous Teams
+# GapNet — Capability Gap Conditioned MARL for Heterogeneous Teams
 
 GapNet is a multi-agent reinforcement learning framework for heterogeneous teams operating under attrition. It introduces a **Capability Gap Encoder** that continuously measures the gap between what a team can supply and what a mission requires, then conditions each agent's policy on that gap signal via a hypernetwork.
 
@@ -83,6 +83,18 @@ src/
 
 ```bash
 pip install -r requirements.txt
+```
+
+GapNet also requires two external dependencies to be cloned and installed at the repo root:
+
+- **HeMAC** — the multi-agent environment backend
+- **CASH JaxMARL benchmarks**
+
+Clone both repositories into the project root and follow their respective installation instructions before running training.
+
+Then run training:
+
+```bash
 python src/prod_code/train_gapnet_v3.2.py
 ```
 
