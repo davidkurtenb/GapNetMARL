@@ -67,8 +67,7 @@ Each task includes multiple scenarios scaling from small fleets (e.g. `1q1o0p`) 
 ```
 src/
 ├── prod_code/
-│   ├── train_gapnet_v3.py       # Timestep-budget training
-│   └── train_gapnet_v3.2.py     # Episode-budget training (recommended)
+│   └── train_gapnet_v3.2.py     # Episode-budget training 
 ├── models/
 │   ├── hybrid_actor_critic.py   # HybridActorCritic + hypernetwork interface
 │   └── hypernetwork.py          # HyperNetwork implementation
